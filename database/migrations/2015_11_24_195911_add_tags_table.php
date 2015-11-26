@@ -23,6 +23,7 @@ class AddTagsTable extends Migration
             $table->increments('id');
             $table->integer('id_tag')->unsigned();
             $table->integer('id_ticket')->unsigned();
+            $table->timestamps();
 
             //claves foraneas de la tabla pivot
             $table->foreign('id_tag')->references('id')->on('tags')->onDelete('cascade');

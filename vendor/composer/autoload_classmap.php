@@ -523,6 +523,7 @@ return array(
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Resources/stubs/SessionHandlerInterface.php',
     'StatusTableSeeder' => $baseDir . '/database/seeds/StatusTableSeeder.php',
     'TagTableSeeder' => $baseDir . '/database/seeds/TagTableSeeder.php',
+    'TagTicketTableSeeder' => $baseDir . '/database/seeds/TagTicketTableSeeder.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
     'TicketTableSeeder' => $baseDir . '/database/seeds/TicketTableSeeder.php',

@@ -18,8 +18,10 @@ class DatabaseSeeder extends Seeder
         $this->call(UserTableSeeder::class);
         $this->call(StatusTableSeeder::class);
         $this->call(PriorityTableSeeder::class);
-        $this->call(TicketTableSeeder::class);
         $this->call(TagTableSeeder::class);
+        $this->call(TicketTableSeeder::class);
+        $this->call(TagTicketTableSeeder::class);
+
 
         Model::reguard();
     }
