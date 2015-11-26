@@ -16,6 +16,22 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'email' => $faker->email,
         'password' => bcrypt(str_random(10)),
+        'id_role' => 2,
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Ticket::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->sentence(5),
+        'comment' => $faker->text,
+        'id_status' => rand(1,2),
+        'id_priority' => rand(1,3),
+    ];
+});
+
+$factory->define(App\Tag::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->company,
     ];
 });
