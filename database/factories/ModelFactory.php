@@ -38,19 +38,23 @@ $factory->define(App\Ticket::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Tag_Ticket::class, function (Faker\Generator $faker) {
 
-    //$tag_id = json_decode(json_encode(DB::table('tags')->select('id')->distinct()->get(), true));
-    //$ticket_id = DB::table('ticket')->select('id')->get();
-
     $tag_id = DB::table('tags')->lists('id');
     $ticket_id = DB::table('ticket')->lists('id');
-
-
-    //print_r($tag_id);
 
     return [
         'id_tag' => $faker->randomElement($tag_id),
         'id_ticket' => $faker->randomElement($ticket_id),
-        //'id_tag' => array_rand($tag_id),
-        //'id_ticket' => array_rand($ticket_id),
+    ];
+});
+
+$factory->define(App\Reply::class, function (Faker\Generator $faker) {
+
+    $user_id = DB::table('tags')->lists('id');
+    $ticket_id = DB::table('ticket')->lists('id');
+
+    return [
+        'comment' => $faker->text,
+        'id_user' => $faker->randomElement($user_id),
+        'id_ticket' => $faker->randomElement($ticket_id),
     ];
 });

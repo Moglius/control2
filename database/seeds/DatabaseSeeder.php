@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TagTableSeeder::class);
         $this->call(TicketTableSeeder::class);
         $this->call(TagTicketTableSeeder::class);
-
+        $this->call(ReplyTableSeeder::class);
 
         Model::reguard();
     }
