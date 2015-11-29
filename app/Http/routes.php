@@ -18,3 +18,19 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'tickets'], function() {
+
+    Route::get('show/{id}', [
+        'uses' => 'TicketsController@show',
+        'as' => 'ticketsShow',
+    ]);
+});
+
+Route::group(['prefix' => 'users'], function() {
+
+    Route::get('show/{id}', [
+        'uses' => 'UsersController@show',
+        'as' => 'UsersShow',
+    ]);
+});

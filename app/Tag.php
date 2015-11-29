@@ -30,6 +30,6 @@ class Tag extends Model
 
     public function tickets()
     {
-        return $this->belongsToMany('App\Ticket');
+        return $this->belongsToMany('App\Ticket', 'tag_ticket', 'id_ticket', 'id_tag');
     }
 }

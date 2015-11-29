@@ -29,6 +29,6 @@ class Status extends Model
 
      public function ticket()
     {
-        return $this->hasMany('App\Ticket');
+         return $this->hasMany('App\Ticket', 'id_status', 'id');
     }
 }

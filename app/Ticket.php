@@ -32,7 +32,7 @@ class Ticket extends Model
      */
     public function status()
     {
-        return $this->belongsTo('App\Status');
+        return $this->belongsTo('App\Status', 'id_status');
     }
 
     /**
@@ -40,16 +40,16 @@ class Ticket extends Model
      */
     public function priority()
     {
-        return $this->belongsTo('App\Priority');
+        return $this->belongsTo('App\Priority', 'id_priority');
     }
 
     public function reply()
     {
-        return $this->hasMany('App\Reply');
+        return $this->hasMany('App\Reply', 'id_ticket', 'id');
     }
 
     public function tags()
     {
-        return $this->belongsToMany('App\Tag');
+        return $this->belongsToMany('App\Tag', 'tag_ticket', 'id_ticket', 'id_tag');
     }
 }

@@ -29,6 +29,6 @@ class Priority extends Model
 
     public function ticket()
     {
-        return $this->hasMany('App\Ticket');
+        return $this->hasMany('App\Ticket', 'id_priority', 'id');
     }
 }

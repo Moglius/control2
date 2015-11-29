@@ -29,11 +29,11 @@ class Reply extends Model
 
     public function ticket()
     {
-        return $this->belongsTo('App\Ticket');
+        return $this->belongsTo('App\Ticket', 'id');
     }
 
      public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'id');
     }
 }
