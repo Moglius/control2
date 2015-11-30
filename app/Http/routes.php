@@ -35,10 +35,18 @@ Route::group(['prefix' => 'users'], function() {
     ]);
 });
 
-Route::group(['prefix' => 'reply'], function() {
+Route::group(['prefix' => 'replys'], function() {
 
     Route::get('show/{id}', [
         'uses' => 'ReplyController@show',
         'as' => 'ReplyShow',
+    ]);
+});
+
+Route::group(['prefix' => 'tags'], function() {
+
+    Route::get('show/{id}', [
+        'uses' => 'TagsController@show',
+        'as' => 'TagsShow',
     ]);
 });
