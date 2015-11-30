@@ -34,3 +34,11 @@ Route::group(['prefix' => 'users'], function() {
         'as' => 'UsersShow',
     ]);
 });
+
+Route::group(['prefix' => 'reply'], function() {
+
+    Route::get('show/{id}', [
+        'uses' => 'ReplyController@show',
+        'as' => 'ReplyShow',
+    ]);
+});

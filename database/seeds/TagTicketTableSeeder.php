@@ -12,6 +12,6 @@ class TagTicketTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(App\Tag_Ticket::class, 60)->create();
+        factory(App\Tag_Ticket::class, 200)->create();
     }
 }

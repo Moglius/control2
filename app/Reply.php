@@ -36,4 +36,9 @@ class Reply extends Model
     {
         return $this->belongsTo('App\User', 'id');
     }
+
+     public function myuser()
+    {
+        return $this->belongsTo('App\User', 'id_user');
+    }
 }

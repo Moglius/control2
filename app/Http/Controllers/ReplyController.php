@@ -6,10 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Ticket;
-use App\User;
+use App\Reply;
 
-class TicketsController extends Controller
+class ReplyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -51,23 +50,10 @@ class TicketsController extends Controller
     public function show($id)
     {
         //
-        $ticket = Ticket::find($id);
-
-        $ticket->status;
-        $ticket->priority;
-
-
-
-        //con los replys y usuarios
-        $replys = $ticket->reply;
-        $ticket->tags;
-
-        foreach ($replys as $reply) {
-            //
-            $reply->myuser;
-        }
-
-        dd($ticket);
+        $reply = Reply::find($id);
+        $reply->ticket;
+        $reply->user;
+        dd($reply);
     }
 
     /**

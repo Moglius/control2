@@ -23,6 +23,8 @@ class AddTagsTable extends Migration
             $table->increments('id');
             $table->integer('id_tag')->unsigned();
             $table->integer('id_ticket')->unsigned();
+            //$table->unique(['id_tag', 'id_ticket']);
+
             $table->timestamps();
 
             //claves foraneas de la tabla pivot
