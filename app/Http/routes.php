@@ -50,3 +50,27 @@ Route::group(['prefix' => 'tags'], function() {
         'as' => 'TagsShow',
     ]);
 });
+
+Route::group(['prefix' => 'roles'], function() {
+
+    Route::get('show/{id}', [
+        'uses' => 'RoleController@show',
+        'as' => 'RoleShow',
+    ]);
+});
+
+Route::group(['prefix' => 'status'], function() {
+
+    Route::get('show/{id}', [
+        'uses' => 'StatusController@show',
+        'as' => 'StatusShow',
+    ]);
+});
+
+Route::group(['prefix' => 'priority'], function() {
+
+    Route::get('show/{id}', [
+        'uses' => 'PriorityController@show',
+        'as' => 'PriorityShow',
+    ]);
+});
