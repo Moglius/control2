@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('usersAPI','UsersController');
+
 Route::group(['prefix' => 'tickets'], function() {
 
     Route::get('show/{id}', [

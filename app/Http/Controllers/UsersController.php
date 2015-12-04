@@ -15,6 +15,12 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(){
+        $this->middleware('cors');
+    }
+
+
     public function index()
     {
         //
@@ -39,6 +45,15 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         //
+
+        $user = User::create($request->all());
+        $user->remember_token = str_random(10);
+
+        $user->save();
+
+        //User::create($request->all());
+
+        return response()->json(["mensaje"=>"Usuario Creado"]);
     }
 
     /**
