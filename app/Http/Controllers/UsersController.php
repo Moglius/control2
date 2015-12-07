@@ -15,9 +15,23 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        $this->middleware('cors');
+    }
+
+
+
     public function index()
     {
         //
+        $users = User::get();
+        return response()->json([
+                "msg" => "Success",
+                //"users" => $users->toArray()
+                "users" => $users
+            ], 200
+        );
+
     }
 
     /**
