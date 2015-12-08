@@ -27,6 +27,24 @@ class UsersController extends Controller
         $this->user = User::find($route->getParameter('usersApi'));
     }
 
+    //funcion para de los usuarios solo los campos deseados
+    public function indexSec()
+    {
+        $users = \DB::table('users')
+            ->select('users.id','users.name','users.email','role.name as role_name')
+            ->join('role', 'users.id_role', '=', 'role.id')
+            ->get();
+
+        //dd($result);
+        return response()->json([
+                "msg" => "Success",
+                //"users" => $users->toArray()
+                "users" => $users
+            ], 200
+        );
+    }
+
+
     public function index()
     {
         //
@@ -74,18 +92,16 @@ class UsersController extends Controller
             $validator = Validator::make($user->toArray(), [
                 'name' => 'required',
                 'email' => 'required|email|unique:users,email',
-                'id_role' => 'required|numeric'
+                'id_role' => 'required|numeric|exists:role,id'
             ]);
 
             if ($validator->fails()) {
                  //return  response()->json($validator->errors()->all());
                 return  response()->json($validator->messages());
-            }else{
-                 return ['created' => 'OK'];
             }
 
-            //User::create($request->all());
-            //return ['created' => 'El Usuario ha sido Creado.'];
+            User::create($request->all());
+            return ['created' => 'OK'];
     }
 
     /**
@@ -120,12 +136,26 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
 
-        $this->user->fill($request->all());
-        $this->user->save();
-         return response()->json([
-                "msg" => "Success",
-            ], 200
-        );
+            $user = new User($request->all());
+
+
+            $validator = Validator::make($user->toArray(), [
+                'name' => 'required',
+                'email' => 'required|email|unique:users,email,' .$id,
+                'id_role' => 'required|numeric|exists:role,id'
+            ]);
+
+
+            if ($validator->fails()) {
+                return  response()->json($validator->messages());
+            }
+
+            $this->user->fill($request->all());
+            $this->user->save();
+
+            return ['created' => 'OK'];
+
+
     }
 
     /**
@@ -137,5 +167,7 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+        $this->user->delete();
+        return ['deleted' => 'OK'];
     }
 }

@@ -35,6 +35,10 @@ Route::group(['prefix' => 'users'], function() {
         'uses' => 'UsersController@show',
         'as' => 'UsersShow',
     ]);
+    Route::get('indexSec', [
+        'uses' => 'UsersController@indexSec',
+        'as' => 'UsersIndexSec',
+    ]);
 });
 
 Route::group(['prefix' => 'replys'], function() {
