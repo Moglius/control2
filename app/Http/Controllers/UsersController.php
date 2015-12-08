@@ -75,7 +75,7 @@ class UsersController extends Controller
             $validator = Validator::make($user->toArray(), [
                 'name' => 'required',
                 'email' => 'required|email|unique:users,email',
-                'name' => 'required',
+                'password' => 'required',
                 'id_role' => 'required|numeric'
             ]);
 
