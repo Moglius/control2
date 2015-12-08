@@ -9,7 +9,6 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 use Validator;
-//use Illuminate/Validation/Validator;
 
 
 class UsersController extends Controller
