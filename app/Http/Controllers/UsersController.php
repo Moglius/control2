@@ -80,11 +80,14 @@ class UsersController extends Controller
             ]);
 
             if ($validator->fails()) {
-                 return  response()->json($validator->messages());
+                 //return  response()->json($validator->errors()->all());
+                return  response()->json($validator->messages());
+            }else{
+                 return ['created' => 'OK'];
             }
 
             //User::create($request->all());
-            return ['created' => true];
+            //return ['created' => 'El Usuario ha sido Creado.'];
     }
 
     /**
