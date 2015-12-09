@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Role;
+use Validator;
 
 class RoleController extends Controller
 {
@@ -15,9 +17,33 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(){
+        $this->middleware('cors');
+        $this->beforeFilter('@find', ['only' => ['show', 'update', 'destroy']]);
+    }
+
+    public function find(Route $route){
+        $this->role = Role::find($route->getParameter('rolesApi'));
+    }
+
     public function index()
     {
         //
+        $roles = \DB::table('role')
+            ->select('role.id','role.name')
+            ->get();
+
+        //dd($roles);
+
+        return response()->json([
+                "msg" => "Success",
+                //"users" => $users->toArray()
+                "roles" => $roles
+            ], 200
+        );
+
+
     }
 
     /**

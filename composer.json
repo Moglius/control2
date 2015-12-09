@@ -7,7 +7,11 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
+<<<<<<< HEAD
         "barryvdh/laravel-cors": "0.7.*"
+=======
+        "barryvdh/laravel-cors": "0.7.x"
+>>>>>>> control2/master
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

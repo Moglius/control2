@@ -19,7 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< HEAD
 Route::resource('usersAPI','UsersController');
+=======
+Route::resource('usersApi','UsersController');
+Route::resource('rolesApi','RoleController');
+>>>>>>> control2/master
 
 Route::group(['prefix' => 'tickets'], function() {
 
@@ -34,6 +39,10 @@ Route::group(['prefix' => 'users'], function() {
     Route::get('show/{id}', [
         'uses' => 'UsersController@show',
         'as' => 'UsersShow',
+    ]);
+    Route::get('indexSec', [
+        'uses' => 'UsersController@indexSec',
+        'as' => 'UsersIndexSec',
     ]);
 });
 
