@@ -20,6 +20,7 @@ Route::get('/', function () {
 });
 
 Route::resource('usersApi','UsersController');
+Route::resource('rolesApi','RoleController');
 
 Route::group(['prefix' => 'tickets'], function() {
 
